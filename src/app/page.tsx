@@ -1,5 +1,5 @@
-import List from "../pages/list";
+import Products from "../pages/products";
 
 export default function Home() {
-  return <List/>
+  return <Products/>
 }
