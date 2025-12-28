@@ -1,7 +1,10 @@
 import { CategoriesView } from "../components/Categories";
+import { PageLayout } from "../components/Layout";
 
 export default function Categories() {
   return (
-    <CategoriesView/>
+    <PageLayout>
+      <CategoriesView/>
+    </PageLayout>
   )
 }

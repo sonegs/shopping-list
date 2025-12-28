@@ -1,6 +1,8 @@
 import { ThemeButtons } from "../ui/Buttons/ThemeButtons";
 
-// TODO:  Make access this component by Header component.
 export default function SettingsView() {
+  // TODO:  Add Edit profile
+  // TODO:  Add Logout
+  // TODO:  Add Copyright
   return <ThemeButtons/>
 }

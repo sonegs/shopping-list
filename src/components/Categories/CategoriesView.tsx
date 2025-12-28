@@ -10,12 +10,12 @@ export default async function CategoriesView() {
 
   return(
     <div className="flex flex-wrap gap-2 p-4">
-    {categories.results.map((category) => {
-      // TODO: Add onClick function
-      return (
-        <Chip key={category.id} label={category.name}/>
-      )
-    })}
+      {categories.results.map((category) => {
+        // TODO: Add onClick function
+        return (
+          <Chip key={category.id} label={category.name}/>
+        )
+      })}
     </div>
   )
     
