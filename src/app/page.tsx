@@ -1,5 +1,5 @@
-import Categories from "../pages/categories";
+import Products from "../pages/products";
 
 export default function Home() {
-  return <Categories/>
+  return <Products/>
 }
