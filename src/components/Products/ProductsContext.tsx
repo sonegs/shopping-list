@@ -1,14 +1,15 @@
 "use client"
 
+import { Filter } from "@/src/lib/filters.api";
 import { createContext, FC, PropsWithChildren, useMemo, useReducer } from "react";
 
 type ProductsState = {
-  filters: number[],
+  filters: Filter[],
   products: []
 }
 
 type ProductsAPI = {
-  handleSetFilters: (filters: number[]) => void
+  handleSetFilters: (filters: Filter[]) => void
   handleSetProducts: (products: []) => void,
 }
 
@@ -20,7 +21,7 @@ enum ProductsActionType {
   SET_FILTERS = 'SET_FILTERS',
 }
 
-type ProductAction = | { type: ProductsActionType.SET_FILTERS, payload: number[] } | { type: ProductsActionType.SET_PRODUCTS, payload: [] };
+type ProductAction = | { type: ProductsActionType.SET_FILTERS, payload: Filter[] } | { type: ProductsActionType.SET_PRODUCTS, payload: [] };
 
 const productsReducer = (state: ProductsState, action: ProductAction): ProductsState => {
   switch(action.type) {
@@ -59,6 +60,4 @@ export const ProductsWrapper: FC<PropsWithChildren> = ({ children }) => {
       </ProductsStateContext.Provider>
     </ProductsAPIContext.Provider>
   )
-
-
 }
