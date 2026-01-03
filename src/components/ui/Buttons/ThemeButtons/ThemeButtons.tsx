@@ -1,32 +1,14 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import ThemeButton from "./ThemeButton";
 import StaticThemeButton from "./StaticThemeButton";
 import { ThemeOption, themes } from "./theme-buttons.utils";
 
 export default function ThemeButtons() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState<boolean>(false);
+  const { setTheme, resolvedTheme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (mounted && !theme) {
-      const systemTheme =
-        resolvedTheme ||
-        (window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light");
-
-      setTheme(systemTheme);
-    }
-  }, [mounted, theme, resolvedTheme, setTheme]);
-
-  if (!mounted) {
+  if (!resolvedTheme) {
     return (
       <div className="flex flex-col gap-4">
         {themes.map((themeOption: ThemeOption) => (
@@ -36,19 +18,17 @@ export default function ThemeButtons() {
     );
   }
 
-  const effectiveTheme = resolvedTheme || theme;
-
   return (
     <div className="flex flex-col gap-4">
       {themes.map((themeOption: ThemeOption) => (
         <ThemeButton
           key={themeOption.id}
           themeName={themeOption.id}
-          currentTheme={effectiveTheme}
+          currentTheme={resolvedTheme}
           onClick={() => setTheme(themeOption.id)}
           label={themeOption.label}
         />
       ))}
     </div>
   );
-};
+}
