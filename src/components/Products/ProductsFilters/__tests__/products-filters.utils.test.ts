@@ -1,5 +1,5 @@
 import { Filter } from "@/src/lib/filters.api";
-import { selectFilter } from "../products-filters.utils";
+import { getFilterClasses, selectFilter } from "../products-filters.utils";
 
 describe('selectFilter', () => {
   const filtersMock: Filter[] = [
@@ -84,5 +84,44 @@ describe('selectFilter', () => {
     const result = selectFilter(filtersMock, selectedFilter);
 
     expect(result).toEqual(filtersMock);
+  });
+});
+
+describe('getFilterClasses', () => {
+  const base = 'rounded-full px-3 py-1 text-sm font-medium transition-colors duration-200 ease-in-out cursor-pointer';
+
+  it('should return selected classes when selected is true', () => {
+    const result = getFilterClasses(true);
+    expect(result).toContain(base);
+    expect(result).toContain('bg-gray-500 text-gray-100 hover:bg-gray-600');
+    expect(result).not.toContain('opacity-50 cursor-not-allowed');
+  });
+
+  it('should return unselected classes when selected is false', () => {
+    const result = getFilterClasses(false);
+    expect(result).toContain(base);
+    expect(result).toContain('bg-gray-100 text-gray-700 hover:bg-gray-200');
+    expect(result).not.toContain('opacity-50 cursor-not-allowed');
+  });
+
+  it('should add disabled classes when disabled is true', () => {
+    const result = getFilterClasses(false, true);
+    expect(result).toContain(base);
+    expect(result).toContain('bg-gray-100 text-gray-700 hover:bg-gray-200');
+    expect(result).toContain('opacity-50 cursor-not-allowed');
+  });
+
+  it('should combine selected and disabled classes correctly', () => {
+    const result = getFilterClasses(true, true);
+    expect(result).toContain(base);
+    expect(result).toContain('bg-gray-500 text-gray-100 hover:bg-gray-600');
+    expect(result).toContain('opacity-50 cursor-not-allowed');
+  });
+
+  it('should not add disabled classes when disabled is false', () => {
+    const result = getFilterClasses(true, false);
+    expect(result).toContain(base);
+    expect(result).toContain('bg-gray-500 text-gray-100 hover:bg-gray-600');
+    expect(result).not.toContain('opacity-50 cursor-not-allowed');
   });
 });
