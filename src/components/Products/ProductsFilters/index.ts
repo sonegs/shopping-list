@@ -1,1 +1,1 @@
-export { default as ProductsFilters } from './ProductsFiltersView';
+export { default as ProductsFilters } from './ProductsFilters';
