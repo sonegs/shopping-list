@@ -1,6 +1,6 @@
 "use client"
 
-import { Filter } from "@/src/lib/filters.api";
+import { Filter } from "@/src/lib/api/filters.api";
 import { ProductsAPIContext, ProductsStateContext } from "../ProductsContext";
 import { useContext } from "react";
 import { getFilterClasses, selectFilter } from "./products-filters.utils";

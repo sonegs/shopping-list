@@ -1,4 +1,4 @@
-import { Filter, FiltersResponse } from "./filters.api";
+import { Filter, FiltersResponse } from "../filters.api";
 
 export const filtersResponseToFilters = (filtersResponse: FiltersResponse): Filter[] => {
   const filters = filtersResponse.results.map((filterResponse) => {

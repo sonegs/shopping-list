@@ -1,5 +1,5 @@
-import { filtersResponseToFilters } from "./filters.mapper";
-import { Endpoints } from "./utils/constants/endpoints";
+import { Endpoints } from "../utils/constants/endpoints";
+import { filtersResponseToFilters } from "./mappers/filters.mapper";
 
 export type FiltersResponse = {
   count: number,

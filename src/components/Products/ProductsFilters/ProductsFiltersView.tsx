@@ -1,4 +1,4 @@
-import { getFilters } from "@/src/lib/filters.api";
+import { getFilters } from "@/src/lib/api/filters.api";
 import ProductsFilters from "./ProductsFilters";
 
 
