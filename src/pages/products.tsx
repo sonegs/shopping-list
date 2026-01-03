@@ -1,6 +1,7 @@
 import { ProductsFilters } from "../components/Products/ProductsFilters";
 import { PageLayout } from "../components/Layout";
-import { ProductsView, ProductsWrapper } from "../components/Products";
+import { ProductsWrapper } from "../components/Products";
+import { ProductsGrid } from "@/components/Products/ProductsGrid";
 
 export default function Products() {
   // TODO: Add search input there
@@ -8,7 +9,7 @@ export default function Products() {
     <PageLayout>
         <ProductsWrapper>
           <ProductsFilters/>
-          <ProductsView/>
+          <ProductsGrid/>
       </ProductsWrapper>
     </PageLayout>
   )

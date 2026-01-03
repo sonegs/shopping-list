@@ -42,8 +42,7 @@ export const ProductsWrapper: FC<PropsWithChildren> = ({ children }) => {
 
   const api: ProductsAPI = useMemo(() => {
     return {
-      // TODO: Type this
-      handleSetFilters(filters){
+      handleSetFilters(filters: Filter[]){
         dispatch({ type: ProductsActionType.SET_FILTERS, payload: filters })
       },
       // TODO: Type this

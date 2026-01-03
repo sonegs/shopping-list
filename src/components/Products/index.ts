@@ -1,2 +1,1 @@
-export { default as ProductsView } from './ProductsView';
-export { ProductsWrapper } from './ProductsContext';
+export { ProductsWrapper, ProductsAPIContext, ProductsStateContext } from './ProductsContext';
