@@ -5,23 +5,23 @@ export type FiltersResponse = {
   count: number,
   next: unknown,
   previous: unknown,
-  results: FiltersResult[],
+  results: FilterResult[],
 }
 
-export type FiltersResultBase = {
+export type FilterResultBase = {
   id: number,
   order: number,
   is_extended: boolean,
   name: string,
-  categories: FiltersResult[],
+  categories: FilterResult[],
 }
 
-export type FiltersResult = FiltersResultBase & {
+export type FilterResult = FilterResultBase & {
   published: boolean,
   layout: number,
 }
 
-export type Filter = FiltersResultBase & {
+export type Filter = FilterResultBase & {
   selected: boolean,
 }
 
@@ -32,6 +32,14 @@ export async function getFilters(): Promise<Filter[]> {
   }
 
   const filtersResponse: FiltersResponse = await filters.json();
-
   return filtersResponseToFilters(filtersResponse);
+}
+
+export async function getFilter(id: number): Promise<FilterResult> {
+  const filter = await fetch(`${Endpoints.MERCADONA}categories/${id}`);
+  if (!filter.ok) {
+    throw new Error('Failed to fetch posts');
+  }
+
+  return filter.json();
 }
