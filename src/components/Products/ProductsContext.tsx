@@ -1,6 +1,6 @@
 "use client"
 
-import { Filter } from "@/src/lib/api/filters.api";
+import { Filter } from "@/lib/api/filters.api";
 import { createContext, FC, PropsWithChildren, useMemo, useReducer } from "react";
 
 type ProductsState = {

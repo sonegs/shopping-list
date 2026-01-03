@@ -1,6 +1,6 @@
 "use client"
 
-import { Filter } from "@/src/lib/api/filters.api";
+import { Filter } from "@/lib/api/filters.api";
 import { useContext, useEffect } from "react";
 import ProductsFiltersChip from "./ProductsFiltersChip";
 import { ProductsAPIContext, ProductsStateContext } from "../ProductsContext";

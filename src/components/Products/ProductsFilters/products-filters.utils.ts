@@ -1,4 +1,4 @@
-import { Filter } from "@/src/lib/api/filters.api";
+import { Filter } from "@/lib/api/filters.api";
 
 // Returns the selected filter
 export const selectFilter = (filters: Filter[], selectedFilter: Filter): Filter[] => {

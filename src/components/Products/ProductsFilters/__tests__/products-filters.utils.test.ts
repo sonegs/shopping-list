@@ -1,4 +1,4 @@
-import { Filter } from "@/src/lib/api/filters.api";
+import { Filter } from "@/lib/api/filters.api";
 import { getFilterClasses, selectFilter } from "../products-filters.utils";
 
 describe('selectFilter', () => {
